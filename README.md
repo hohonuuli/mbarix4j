@@ -1,7 +1,7 @@
 mbarix4j
 ========
 
-Java extensions used with MBARI software applications. This project hosts Java extensions and convenience classes used by MBARI projects. It's only external dependency is SLF4J.
+Java extensions used with MBARI software applications. This project hosts Java extensions and convenience classes used by MBARI projects. It's only external dependency is [SLF4J](http://www.slf4j.org/).
 
 To include it in your maven project add the following to your pom.xml file:
 
