@@ -60,7 +60,7 @@ import javax.swing.AbstractListModel;
  * @see javax.swing.AbstractListModel
  */
 public class ListListModel extends AbstractListModel
-        implements List, Serializable {
+        implements List, Serializable, MutableListModel {
 
     /**
      * 
@@ -429,7 +429,7 @@ public class ListListModel extends AbstractListModel
      * @param      obj     what the component is to be set to.
      * @param      index   the specified index.
      * @see #set(int,Object)
-     * @see Vector#setElementAt(int, Object)
+     * @see List#set(int, Object)
      */
     public void setElementAt(int index, Object obj) {
         delegate.set(index, obj);
@@ -522,5 +522,13 @@ public class ListListModel extends AbstractListModel
      */
     public String toString() {
         return delegate.toString();
+    }
+
+    public boolean isCellEditable(int index) {
+        return true;
+    }
+
+    public void setValueAt(Object value, int index) {
+        delegate.add(index, value);
     }
 }
