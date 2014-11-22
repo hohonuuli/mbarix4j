@@ -36,7 +36,24 @@ import java.util.TreeSet;
 public class FileUtilities {
 
     private FileUtilities() {
+
         // Not instantiable
+    }
+
+    /**
+     *
+     * @param file
+     * @param newExtension
+     * @return
+     */
+    public static File changeExtension(File file, String newExtension) {
+        final String path = file.getAbsolutePath();
+        int idx = path.lastIndexOf('.');
+        if (idx < 0) {
+            idx = path.length();
+        }
+
+        return new File(path.substring(0, idx) + newExtension);
     }
 
     /**
@@ -49,7 +66,7 @@ public class FileUtilities {
     public static File[] getDirRoots() {
         File[] rootsList = File.listRoots();
         TreeSet goodRoots = new TreeSet();
-        for (int k=0; k < rootsList.length; k++) {
+        for (int k = 0; k < rootsList.length; k++) {
             if (rootsList[k].exists()) {
                 goodRoots.add(rootsList[k]);
             }
@@ -58,13 +75,20 @@ public class FileUtilities {
         return (File[]) goodRoots.toArray(new File[goodRoots.size()]);
     }
 
-    public static File changeExtension(File file, String newExtension) {
+    /**
+     *
+     * @param file The file whos extension we want
+     * @return The extension, including the leading period. null if the file doesn not
+     *      have an extension
+     */
+    public static String getExtension(File file) {
         final String path = file.getAbsolutePath();
         int idx = path.lastIndexOf('.');
         if (idx < 0) {
-            idx = path.length();
+            return null;
         }
-        return new File(path.substring(0, idx) + newExtension);
+        else {
+            return path.substring(idx);
+        }
     }
-
 }
