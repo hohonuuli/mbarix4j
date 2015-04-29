@@ -1,7 +1,7 @@
 /* 
  * $Id: AccumulativeRunnable.java,v 1.2 2006/09/28 20:20:28 idk Exp $
  * 
- * Copyright © 2005 Sun Microsystems, Inc. All rights
+ * Copyright 2005 Sun Microsystems, Inc. All rights
  * reserved. Use is subject to license terms.
  *
  * A 1000 apologies to Sun for moving this from org.jdesktop.swingworker to

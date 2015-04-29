@@ -25,7 +25,9 @@ public class SolarPosition {
     private double greenwichHourAngle; //
     private final double latitude; // Observers latitude in radians
     private final double longitude; // Observers longitude in radians
+    private double earthSunDistance; // in AU
     private long time;
+    
     
 
     /**
@@ -126,7 +128,7 @@ public class SolarPosition {
         // I went to some trouble to discover all of this...
         // so keep the commented lines as a tutorial.
         double equationOfTime = Math.asin(P20 / Math.sqrt(P19 - P18 * P18)); // Equation of Time (radians)
-        double earthSunDistance = 1.00021 * Math.sqrt(P19); // Earth-Sun Distance (A.U.)
+        earthSunDistance = 1.00021 * Math.sqrt(P19); // Earth-Sun Distance (A.U.)
         double declination = Math.asin(P18 / Math.sqrt(P19)); // Declination (radians)
         double meanRightAscension = P12; // Mean Right Ascension (radians)
         double rightAscension = meanRightAscension + equationOfTime; // Right Ascension (radians)
@@ -142,7 +144,8 @@ public class SolarPosition {
         double solarZenith = Math.acos(Math.sin(latitudeRadians) * Math.sin(declination) + Math.cos(latitudeRadians) * Math.cos(declination) * Math.cos(lha)); // THeta
         //double solarAzimuth = Math.asin(Math.sin(Math.abs(lha))) * Math.cos(declination) /
         // Math.sin(solarZenith); // Phi
-        double solarAzimuth = Math.acos((-Math.sin(latitudeRadians) * Math.cos(lha) * Math.cos(declination) + Math.sin(declination) * Math.cos(latitudeRadians)) / Math.sin(solarZenith));
+        double solarAzimuth = Math.acos((-Math.sin(latitudeRadians) * Math.cos(lha) * Math.cos(declination) +
+            Math.sin(declination) * Math.cos(latitudeRadians)) / Math.sin(solarZenith));
 
         int sign1 = DoubleMath.sign(-Math.cos(declination) * Math.sin(lha) / Math.sin(solarZenith));
         int sign2 = DoubleMath.sign(Math.sin(solarAzimuth));
@@ -218,6 +221,10 @@ public class SolarPosition {
      */
     public double getZenith() {
         return zenith;
+    }
+    
+    public double getEarthSunDistance() {
+        return earthSunDistance;
     }
     
 }

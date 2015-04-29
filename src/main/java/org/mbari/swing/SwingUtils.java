@@ -506,4 +506,18 @@ public class SwingUtils {
 
         frame.setBounds(0, 0, width, height);
     }
+    
+    /**
+     * Creates a resizable window for displaying an image
+     * @param name 
+     * @param image
+     * @return A reference to a resizable frame displaying the image
+     */ 
+    public static JImageFrame namedWindow(String name, BufferedImage image) {
+      JImageFrame window = new JImageFrame(image);
+      window.setTitle(name);
+      window.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+      return window;
+    }
+    
 }
