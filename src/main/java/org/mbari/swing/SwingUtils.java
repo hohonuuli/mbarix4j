@@ -18,9 +18,8 @@ package org.mbari.swing;
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.KeyStroke;
+import java.awt.image.BufferedImage;
+import javax.swing.*;
 
 /**
  *

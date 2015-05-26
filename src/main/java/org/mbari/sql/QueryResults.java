@@ -53,12 +53,16 @@ import java.util.TreeSet;
 public class QueryResults {
 
     private static final Object NO_VALUE = "!_!!_!!!___NO_VALUE___!!!_!!_!";
-    private Map<String, List<Object>> resultsMap = new TreeMap<String, List<Object>>();
+    private Map<String, List<Object>> resultsMap = new TreeMap<>();
 
     /**
      * Used for storing values during the coalesce method call. This map is Map<String, Map<Integer, Set>> where values are: Map<columnName, Map<row#, values>>
      */
     private Map<String, Map<Integer, Set<Object>>> duplicateMap;
+
+    public QueryResults(Map<String, List<Object>> data) {
+        resultsMap.putAll(data);
+    }
 
     /**
      * Generates a QueryResult from a ResultSet. This reads the metadata and all
@@ -291,7 +295,7 @@ public class QueryResults {
     /**
      * Retrieve the underlying storage
      */
-    public Map getResultsMap() {
+    public Map<String, List<Object>> getResultsMap() {
         return resultsMap;
     }
 
@@ -478,4 +482,7 @@ public class QueryResults {
             }
         }
     }
+
+
+
 }
