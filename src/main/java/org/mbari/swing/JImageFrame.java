@@ -70,9 +70,9 @@ public class JImageFrame extends JFrame {
 
     /**
      *
-     * @return retrieves teh underlying component used to render the image
+     * @return retrieves the underlying component used to render the image
      */
-    public JComponent getImageDisplayComponenet() {
+    public JComponent getImageDisplayComponent() {
         return imageCanvas;
     }
 

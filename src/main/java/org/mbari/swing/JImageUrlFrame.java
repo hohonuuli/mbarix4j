@@ -105,34 +105,37 @@ public class JImageUrlFrame extends JImageFrame {
         final JImageUrlFrame imageFrame = new JImageUrlFrame();
         imageFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         imageFrame.setVisible(true);
-        Thread swapThread = new Thread(new Runnable() {
+        JImageCanvas imageCanvas = (JImageCanvas) imageFrame.getImageDisplayComponent();
+        imageFrame.setImageUrl(url1);
 
-            public void run() {
-
-                while (imageFrame.isVisible()) {
-                    try {
-                        Thread.sleep(3000);
-                        SwingUtilities.invokeLater(new Runnable() {
-                            public void run() {
-                                imageFrame.setImageUrl(url2);
-                            }
-                        });
-
-                        Thread.sleep(3000);
-                        SwingUtilities.invokeLater(new Runnable() {
-                            public void run() {
-                                imageFrame.setImageUrl(url1);
-                            }
-                        });
-                    }
-                    catch (InterruptedException e) {
-                        System.exit(0);
-                    }
-                }
-            }
-        });
-        swapThread.setDaemon(true);
-        swapThread.start();
+//        Thread swapThread = new Thread(new Runnable() {
+//
+//            public void run() {
+//
+//                while (imageFrame.isVisible()) {
+//                    try {
+//                        Thread.sleep(3000);
+//                        SwingUtilities.invokeLater(new Runnable() {
+//                            public void run() {
+//                                imageFrame.setImageUrl(url2);
+//                            }
+//                        });
+//
+//                        Thread.sleep(3000);
+//                        SwingUtilities.invokeLater(new Runnable() {
+//                            public void run() {
+//                                imageFrame.setImageUrl(url1);
+//                            }
+//                        });
+//                    }
+//                    catch (InterruptedException e) {
+//                        System.exit(0);
+//                    }
+//                }
+//            }
+//        });
+//        swapThread.setDaemon(true);
+//        swapThread.start();
 
     }
 

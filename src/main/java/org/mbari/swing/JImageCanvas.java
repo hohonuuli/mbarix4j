@@ -15,15 +15,13 @@
 
 package org.mbari.swing;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Point;
-import java.awt.Rectangle;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
-import javax.swing.JComponent;
+import javax.swing.*;
 
 /**
  * <p>
@@ -264,7 +262,10 @@ public class JImageCanvas extends JComponent {
             Rectangle r = getImageRectangle().getBounds();
             g.drawImage(image, r.x, r.y, r.width, r.height, this);
         }
+
+        super.paintComponent(g);
     }
+
 
     /**
      *
@@ -279,4 +280,5 @@ public class JImageCanvas extends JComponent {
         firePropertyChange(PROP_IMAGE, oldImage, image);
         repaint();
     }
+
 }
