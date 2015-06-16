@@ -22,3 +22,18 @@ To include it in your maven project add the following to your pom.xml file:
 </dependency>
 
 ```
+
+
+__NOTE__
+
+To Release: 
+
+1. Validate: `mvn -P release clean install`
+2. Go the the Bintray Web site and add a new version for the package.
+3. Execute the release process as follows: 
+    ```
+    mvn release:prepare
+    mvn release:perform
+    ```
+4. Go to the Bintray Web site and publish the new version.
+

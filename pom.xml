@@ -4,7 +4,7 @@
   <groupId>org.mbari</groupId>
   <artifactId>mbarix4j</artifactId>
   <packaging>jar</packaging>
-  <version>1.9.3-SNAPSHOT</version>
+  <version>1.9.3</version>
   <name>mbarix4j - MBARI Extensions for Java</name>
   <url>https://github.com/hohonuuli/mbarix4j</url>
   <description>MBARI developed java code that is shared across different projects</description>
@@ -12,6 +12,7 @@
     <connection>scm:git@github.com:hohonuuli/mbarix4j.git</connection>
     <developerConnection>scm:git@github.com:hohonuuli/mbarix4j.git</developerConnection>
     <url>https://github.com/hohonuuli/mbarix4j</url>
+    <tag>HEAD</tag>
   </scm>
   <properties>
     <encoding>UTF-8</encoding>
@@ -69,6 +70,39 @@
     </dependency>
   </dependencies>
   
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+  
+  
   <build>
     <plugins>
       <plugin>
@@ -105,7 +139,16 @@
           <!--</execution>-->
         <!--</executions>-->
       <!--</plugin>-->
-    </plugins>
+        <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.4.1</version>
+          <configuration>
+            <useReleaseProfile>false</useReleaseProfile>
+            <releaseProfiles>release</releaseProfiles>
+            <autoVersionSubmodules>true</autoVersionSubmodules>
+          </configuration>
+        </plugin>
+      </plugins>
     <extensions>
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
@@ -180,7 +223,7 @@
     </plugins>
   </reporting>
   
-  <distributionManagement>
+  <!-- <distributionManagement>
     <snapshotRepository>
       <id>ossrh</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
@@ -189,5 +232,13 @@
       <id>ossrh</id>
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
+  </distributionManagement> -->
+  
+  <distributionManagement>
+    <repository>
+      <id>bintray</id>
+      <url>https://api.bintray.com/maven/hohonuuli/maven/mbarix4j</url>
+    </repository>
   </distributionManagement>
+  
 </project>
