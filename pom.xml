@@ -4,13 +4,13 @@
   <groupId>org.mbari</groupId>
   <artifactId>mbarix4j</artifactId>
   <packaging>jar</packaging>
-  <version>1.9.3</version>
+  <version>1.9.4-SNAPSHOT</version>
   <name>mbarix4j - MBARI Extensions for Java</name>
   <url>https://github.com/hohonuuli/mbarix4j</url>
   <description>MBARI developed java code that is shared across different projects</description>
   <scm>
     <connection>scm:git@github.com:hohonuuli/mbarix4j.git</connection>
-    <developerConnection>scm:git@github.com:hohonuuli/mbarix4j.git</developerConnection>
+    <developerConnection>scm:git:git@github.com:hohonuuli/mbarix4j.git</developerConnection>
     <url>https://github.com/hohonuuli/mbarix4j</url>
     <tag>HEAD</tag>
   </scm>
