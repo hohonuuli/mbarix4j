@@ -23,6 +23,8 @@ To include it in your maven project add the following to your pom.xml file:
 
 ```
 
+[ ![Download](https://api.bintray.com/packages/hohonuuli/maven/mbarix4j/images/download.svg) ](https://bintray.com/hohonuuli/maven/mbarix4j/_latestVersion)
+
 
 __NOTE__
 
