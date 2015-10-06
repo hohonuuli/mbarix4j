@@ -31,13 +31,7 @@ public class DoubleMath {
      * @return
      */
     public static boolean isEven(double x) {
-        double i = rem(x, 2.0);
-        boolean even = true;
-        if (i != 0.0) {
-            even = false;
-        }
-
-        return even;
+        return rem(x, 2.0) == 0.0;
     }
 
     /**
