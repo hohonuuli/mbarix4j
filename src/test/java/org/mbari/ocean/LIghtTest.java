@@ -10,7 +10,7 @@ import static org.mbari.ocean.Light.*;
  * @author Brian Schlining
  * @since 2011-12-26
  */
-public class LIghtTest {
+public class LightTest {
 
     @Test
     public void testC2T() {
