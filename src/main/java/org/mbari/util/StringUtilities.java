@@ -89,5 +89,16 @@ public class StringUtilities {
         }
         return out;
     }
+    
+    /**
+     * Repeat a string. Analagous to pythons ability to do "AB" * 2 = "ABAB". For example:
+     * StringUtilities.repeat("AB", 2) = "ABAB"
+     * @param s The string to repeat
+     * @param i The number of times to repeat the string
+     */
+    public static final String repeat(String s, int i) {
+      return new String(new char[i]).replace("\0", s);
+    }
+    
 
 }

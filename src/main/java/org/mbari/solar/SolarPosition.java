@@ -27,6 +27,7 @@ public class SolarPosition {
     private final double longitude; // Observers longitude in radians
     private double earthSunDistance; // in AU
     private long time;
+    private double equationOfTime; // equation of time in radians
     
     
 
@@ -37,8 +38,8 @@ public class SolarPosition {
      */
     public SolarPosition(long millis, double latitude, double longitude) {
         this.time = millis;
-        this.longitude = longitude * (Math.PI) / 180;
-        this.latitude = latitude * (Math.PI) / 180;
+        this.longitude = longitude * (Math.PI) / 180D;
+        this.latitude = latitude * (Math.PI) / 180D;
         this.calculateSolarPosition();
     }
 
@@ -62,7 +63,7 @@ public class SolarPosition {
         double hour = gc.get(Calendar.HOUR_OF_DAY);
         double minute = gc.get(Calendar.MINUTE);
         double second = gc.get(Calendar.SECOND);
-        double decimalHour = hour + (minute + second / 60) / 60;
+        double decimalHour = hour + (minute + second / 60D) / 60D;
 
         double julianDate = TimeUtilities.getJulianDate(this.time) + decimalHour / 24.0; // Julian Date + hours
         double days2000 = julianDate - 2451545.0;
@@ -161,6 +162,7 @@ public class SolarPosition {
         this.azimuth = solarAzimuth;
         this.greenwichHourAngle = gha;
         this.declination = declination;
+        this.equationOfTime = equationOfTime;
     }
     
      /**
@@ -225,6 +227,10 @@ public class SolarPosition {
     
     public double getEarthSunDistance() {
         return earthSunDistance;
+    }
+
+    public double getEquationOfTime() {
+        return equationOfTime;
     }
     
 }

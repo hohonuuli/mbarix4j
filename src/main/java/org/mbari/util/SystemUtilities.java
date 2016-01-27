@@ -25,19 +25,6 @@ import java.net.*;
  * MBARI Proprietary Information. All rights reserved.</font><br><hr><br>
  *
  */
-
-/*
- * $Log: SystemUtilities.java,v $
- * Revision 1.1  2006/01/09 21:16:59  brian
- * initial import
- *
- * Revision 1.2  2002/07/02 21:49:41  brian
- * updating mbari.jar distribution
- *
- * Revision 1.2  2002/05/28 23:45:52  brian
- * Added documentation and comments
- *
- */
 public class SystemUtilities {
 
     
