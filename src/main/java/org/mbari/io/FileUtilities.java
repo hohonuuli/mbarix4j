@@ -65,14 +65,14 @@ public class FileUtilities {
      */
     public static File[] getDirRoots() {
         File[] rootsList = File.listRoots();
-        TreeSet goodRoots = new TreeSet();
+        TreeSet<File> goodRoots = new TreeSet<>();
         for (int k = 0; k < rootsList.length; k++) {
             if (rootsList[k].exists()) {
                 goodRoots.add(rootsList[k]);
             }
         }
 
-        return (File[]) goodRoots.toArray(new File[goodRoots.size()]);
+        return goodRoots.toArray(new File[goodRoots.size()]);
     }
 
     /**

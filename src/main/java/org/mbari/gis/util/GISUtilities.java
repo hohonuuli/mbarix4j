@@ -98,12 +98,12 @@ public class GISUtilities {
                          45 * eccSquared * eccSquared * eccSquared / 1024) * Math
                              .sin(4 * latRad) - (35 * eccSquared * eccSquared * eccSquared / 3072) * Math.sin(6 * latRad));
 
-        double utmEasting = (double) (k0 * N *
+        double utmEasting = (k0 * N *
                                       (A + (1 - T + C) * A * A * A / 6.0d +
                                        (5 - 18 * T + T * T + 72 * C - 58 * eccPrimeSquared) * A * A * A * A * A /
                                        120.0d) + 500000.0d);
 
-        double utmNorthing = (double) (k0 *
+        double utmNorthing = (k0 *
                                        (M +
                                         N * Math.tan(latRad) *
                                         (A * A / 2 + (5 - T + 9 * C + 4 * C * C) * A * A * A * A / 24.0d +

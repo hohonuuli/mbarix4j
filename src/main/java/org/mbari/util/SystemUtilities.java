@@ -37,7 +37,6 @@ public class SystemUtilities {
     }
 
     public static String getFile(String path) {
-        URL t = SystemUtilities.getURL(path);
         return SystemUtilities.getURL(path).getFile();
     }
 

@@ -248,7 +248,7 @@ public class Matlib {
             xid[i] = (double) xi[i];
         }
 
-        return Matlib.interpolate(xd, y, xid);
+        return interpolate(xd, y, xid);
     }
 
     /**

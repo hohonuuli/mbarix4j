@@ -10,6 +10,7 @@ import java.awt.Frame;
 import java.awt.Point;
 import java.awt.Window;
 import java.awt.geom.Point2D;
+import java.util.Optional;
 
 /**
  *
@@ -41,13 +42,14 @@ public class AwtUtilities {
      * in window then null is returned.
      *
      * @param component The component whose containing window we want to find.
-     * @return The containing window or null if not in a containing window
+     * @return The containing window or None if not in a containing window
      */
-    public static Window getWindow(Component component) {
+    public static Optional<Window> getWindow(Component component) {
         while (true) {
             Component parent = component.getParent();
             if (parent == null) {
-                return (component instanceof Window) ? (Window) component : null;
+                Window window =  (component instanceof Window) ? (Window) component : null;
+                return Optional.ofNullable(window);
             }
             component = parent;
         }
@@ -56,11 +58,13 @@ public class AwtUtilities {
     /**
      * Returns the Frame that contains the given component. If it's not contained
      * in a Frame (for example if it's in a Dialog, which is a Window but not a Frame)
-     * then null is returned
+     * then None is returned
      */
-    public static Frame getFrame(Component component) {
-        Window window = getWindow(component);
-        return (window instanceof Frame) ? (Frame) window : null;
+    public static Optional<Frame> getFrame(Component component) {
+        return getWindow(component).flatMap(window -> {
+            Frame frame = (window instanceof Frame) ? (Frame) window : null;
+            return Optional.ofNullable(frame);
+        });
     }
 
 }

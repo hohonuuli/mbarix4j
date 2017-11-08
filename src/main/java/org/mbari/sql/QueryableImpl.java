@@ -42,7 +42,7 @@ public class QueryableImpl implements IQueryable {
             Class.forName(driverClass);
         }
         catch (ClassNotFoundException ex) {
-            throw new DBException("Failed to initialize driver class:" + driverClass, ex);
+            throw new RuntimeException("Failed to initialize driver class:" + driverClass, ex);
         }
     }
 
@@ -86,7 +86,7 @@ public class QueryableImpl implements IQueryable {
                 }
             }
 
-            throw new DBException("Failed to execute the following SQL on " + jdbcUrl + ": " + query, e);
+            throw new RuntimeException("Failed to execute the following SQL on " + jdbcUrl + ": " + query, e);
         }
 
         return object;
@@ -117,7 +117,7 @@ public class QueryableImpl implements IQueryable {
                 }
             }
 
-            throw new DBException("Failed to execute the following SQL on " + jdbcUrl + ": " + updateSql, e);
+            throw new RuntimeException("Failed to execute the following SQL on " + jdbcUrl + ": " + updateSql, e);
         }
         return n;
     }

@@ -26,7 +26,7 @@ import java.util.List;
  */
 public class PointUtilities {
 
-    private static final Point2D<Double> ORIGIN = new Point2D<Double>(0D, 0D);
+    private static final Point2D<Double> ORIGIN = new Point2D<>(0D, 0D);
 
     /**
      * Calculate the centroid of a collection of points
@@ -47,7 +47,7 @@ public class PointUtilities {
         x = x / points.size();
         y = y / points.size();
 
-        return new Point2D<Double>(x, y);
+        return new Point2D<>(x, y);
     }
 
     /**
@@ -57,10 +57,10 @@ public class PointUtilities {
      * @param points A collection of points
      * @return a Point2d<Integer> representing the lower right
      */
-    public static Point2D maximum(Collection<? extends Point2D> points) {
-        Point2D maxX = Collections.max(points, new XComparator());
-        Point2D maxY = Collections.max(points, new YComparator());
-        return new Point2D(maxX.getX(), maxY.getY());
+    public static <T extends Number> Point2D<T> maximum(Collection<? extends Point2D<T>> points) {
+        Point2D<T> maxX = Collections.max(points, new XComparator());
+        Point2D<T> maxY = Collections.max(points, new YComparator());
+        return new Point2D<>(maxX.getX(), maxY.getY());
     }
 
     /**
@@ -70,10 +70,10 @@ public class PointUtilities {
      * @param points A collection of points
      * @return a Point2d<Integer> representing the upper left
      */
-    public static Point2D minimum(Collection<? extends Point2D> points) {
-        Point2D minX = Collections.min(points, new XComparator());
-        Point2D minY = Collections.min(points, new YComparator());
-        return new Point2D(minX.getX(), minY.getY());
+    public static <T extends Number> Point2D<T> minimum(Collection<? extends Point2D<T>> points) {
+        Point2D<T> minX = Collections.min(points, new XComparator());
+        Point2D<T> minY = Collections.min(points, new YComparator());
+        return new Point2D<>(minX.getX(), minY.getY());
     }
 
     /**
@@ -83,7 +83,7 @@ public class PointUtilities {
      * @param pivot
      * @return
      */
-    public static List<Point2D<Double>> rotate(List<? extends Point2D> points, double angleRadians, Point2D pivot) {
+    public static List<Point2D<Double>> rotate(List<? extends Point2D<? extends Number>> points, double angleRadians, Point2D pivot) {
 
         double pivotX = pivot.getX().doubleValue();
         double pivotY = pivot.getY().doubleValue();
@@ -92,11 +92,11 @@ public class PointUtilities {
         List<Point2D<Double>> translatedPoints = translate(points, -pivotX, -pivotY);
 
         // Apply rotation around pivot
-        List<Point2D> rotatedAndTranslatedPoints = new ArrayList<Point2D>();
+        List<Point2D<? extends Number>> rotatedAndTranslatedPoints = new ArrayList<Point2D<? extends Number>>();
         for (Point2D<Double> p : translatedPoints) {
             double newX = p.getX() * Math.cos(angleRadians) - p.getY() * Math.sin(angleRadians);
             double newY = p.getX() * Math.sin(angleRadians) + p.getY() * Math.cos(angleRadians);
-            rotatedAndTranslatedPoints.add(new Point2D<Double>(newX, newY));
+            rotatedAndTranslatedPoints.add(new Point2D<>(newX, newY));
         }
 
         // Move points back to original position
@@ -110,7 +110,7 @@ public class PointUtilities {
      * @param angleRadians
      * @return
      */
-    public static List<Point2D<Double>> rotate(List<? extends Point2D> points, double angleRadians) {
+    public static List<Point2D<Double>> rotate(List<? extends Point2D<? extends Number>> points, double angleRadians) {
         return rotate(points, angleRadians, ORIGIN);
     }
 
@@ -121,7 +121,7 @@ public class PointUtilities {
      * @param center
      * @return
      */
-    public static List<Point2D<Double>> scale(List<? extends Point2D> points, Double scale, Point2D center) {
+    public static List<Point2D<Double>> scale(List<? extends Point2D<? extends Number>> points, Double scale, Point2D center) {
 
         double centerX = center.getX().doubleValue();
         double centerY = center.getY().doubleValue();
@@ -145,7 +145,7 @@ public class PointUtilities {
      * @param scale
      * @return
      */
-    public static List<Point2D<Double>> scale(List<? extends Point2D> points, Double scale) {
+    public static List<Point2D<Double>> scale(List<? extends Point2D<? extends Number>> points, Double scale) {
         return scale(points, scale, ORIGIN);
     }
 
@@ -156,7 +156,7 @@ public class PointUtilities {
      * @param y
      * @return
      */
-    public static List<Point2D<Double>> translate(List<? extends Point2D> points, double x, double y) {
+    public static List<Point2D<Double>> translate(List<? extends Point2D<? extends Number>> points, double x, double y) {
         List<Point2D<Double>> translatedPoints = new ArrayList<Point2D<Double>>(points.size());
         for (Point2D p : points) {
             translatedPoints.add(new Point2D<Double>(p.getX().doubleValue() + x,
