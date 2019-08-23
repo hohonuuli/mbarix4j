@@ -16,6 +16,7 @@ module mbarix4j {
     exports mbarix4j.concurrent;
     exports mbarix4j.geometry;
     exports mbarix4j.gis.util;
+    exports mbarix4j.io;
     exports mbarix4j.math;
     exports mbarix4j.model.solar;
     exports mbarix4j.model.tidal;
