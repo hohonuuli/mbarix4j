@@ -27,7 +27,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.ProgressMonitor;
-import javax.swing.SwingUtilities;
 import org.mbari.awt.event.ActionAdapter;
 import org.mbari.awt.event.ActionRunnable;
 import org.mbari.swing.actions.SaveFramegrabsAction;
