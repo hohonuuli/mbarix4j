@@ -117,22 +117,26 @@ public class SearchableTreePanel extends JPanel {
 
     protected javax.swing.JButton getSearchBtn() {
         if (searchBtn == null) {
-            ImageIcon icon = new ImageIcon(getClass().getResource("/mbarix4j/images/view.png"));
             searchBtn = new JFancyButton();
-            searchBtn.setIcon(icon);
-            searchBtn.setPressedIcon(new ImageIcon(getClass().getResource("/mbarix4j/images/view_next.png")));
             searchBtn.setName("searchBtn");
+
+            try {
+                // Running into JPMS issue with reading images when subclasses
+                // outside of mbarix4j module
+                searchBtn.setIcon(new ImageIcon(getClass().getResource("/mbarix4j/images/view.png")));
+                searchBtn.setPressedIcon(new ImageIcon(getClass().getResource("/mbarix4j/images/view_next.png")));
+            }
+            catch (Exception e) {
+                searchBtn.setText("Search");
+            }
+
 
             //searchBtn.setPreferredSize(new java.awt.Dimension(icon.getIconWidth(), icon.getIconWidth()));
             searchBtn.setToolTipText("Search for words in the tree, use this button or press enter in search field");
-            searchBtn.addActionListener(new java.awt.event.ActionListener() {
-
-                public void actionPerformed(java.awt.event.ActionEvent e) {
-                    if (!goToMatchingNode(getSearchTextField().getText().toLowerCase())) {
-                        SwingUtils.flashJComponent(getSearchTextField(), 5);
-                    }
+            searchBtn.addActionListener(e -> {
+                if (!goToMatchingNode(getSearchTextField().getText().toLowerCase())) {
+                    SwingUtils.flashJComponent(getSearchTextField(), 5);
                 }
-
             });
             searchBtn.setEnabled(false);
         }
@@ -263,7 +267,7 @@ public class SearchableTreePanel extends JPanel {
                     break;
 
                 case GLOB:
-                    if (nodeName.indexOf(text) != -1) {
+                    if (nodeName.contains(text)) {
                         nodeFound = node;
 
                         break OUTER;

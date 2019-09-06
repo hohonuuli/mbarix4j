@@ -91,19 +91,13 @@ public class JImageUrlCanvas extends JImageCanvas {
 
     private BufferedImage getNoImage() {
         if (noImage == null) {
-            URL noImageUrl = getClass().getResource("/images/no_image.jpg");
-            try {
-                noImage = ImageIO.read(noImageUrl);
-            }
-            catch (IOException e) {
-                noImage = new BufferedImage(500, 500, BufferedImage.TYPE_INT_RGB);
-                Graphics2D g = (Graphics2D) noImage.getGraphics();
-                g.setPaint(getBackground());
-                g.fillRect(0, 0, noImage.getWidth(), noImage.getHeight());
-                g.setPaint(getForeground());
-                g.drawString("NO IMAGE " + url , 1, 100);
-                g.dispose();
-            }
+            noImage = new BufferedImage(500, 500, BufferedImage.TYPE_INT_RGB);
+            Graphics2D g = (Graphics2D) noImage.getGraphics();
+            g.setPaint(getBackground());
+            g.fillRect(0, 0, noImage.getWidth(), noImage.getHeight());
+            g.setPaint(getForeground());
+            g.drawString("NO IMAGE " + url , 1, 100);
+            g.dispose();
         }
         return noImage;
     }

@@ -20,7 +20,7 @@ public class AnimatedGifDemo {
     public static void main(String[] args){
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add(new JLabel(new ImageIcon(frame.getClass().getResource("/mbarix4j/images/wait18trans.gif"))));
+        frame.add(new JLabel(new ImageIcon(AnimatedGifDemo.class.getResource("/mbarix4j/images/BrianSchlining.jpg"))));
         frame.pack();
         frame.setVisible(true);
     }

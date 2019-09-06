@@ -36,5 +36,6 @@ module mbarix4j {
     exports mbarix4j.util.stream;
 
     opens mbarix4j.images;
+    opens mbarix4j.js;
 
 }
