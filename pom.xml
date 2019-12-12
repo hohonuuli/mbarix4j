@@ -4,7 +4,7 @@
   <groupId>org.mbari</groupId>
   <artifactId>mbarix4j</artifactId>
   <packaging>jar</packaging>
-  <version>2.0.4.jre11</version>
+  <version>2.0.5.jre11</version>
   <name>mbarix4j - MBARI Extensions for Java</name>
   <url>https://github.com/hohonuuli/mbarix4j</url>
   <description>MBARI developed java code that is shared across different projects</description>
@@ -222,7 +222,7 @@
   <distributionManagement>
     <repository>
       <id>bintray</id>
-      <url>https://api.bintray.com/maven/hohonuuli/maven/mbarix4j</url>
+      <url>https://api.bintray.com/maven/org-mbari/maven/mbarix4j</url>
     </repository>
   </distributionManagement>
 
