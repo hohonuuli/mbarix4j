@@ -220,9 +220,13 @@
 
 
   <distributionManagement>
-    <repository>
+    <!-- <repository>
       <id>bintray</id>
       <url>https://api.bintray.com/maven/org-mbari/maven/mbarix4j</url>
+    </repository> -->
+    <repository>
+      <id>github</id>
+      <url>https://maven.pkg.github.com/mbari-org/maven</url>
     </repository>
   </distributionManagement>
 
