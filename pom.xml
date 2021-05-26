@@ -4,7 +4,7 @@
   <groupId>org.mbari</groupId>
   <artifactId>mbarix4j</artifactId>
   <packaging>jar</packaging>
-  <version>1.10.0-SNAPSHOT</version>
+  <version>1.10.1</version>
   <name>mbarix4j - MBARI Extensions for Java</name>
   <url>https://github.com/hohonuuli/mbarix4j</url>
   <description>MBARI developed java code that is shared across different projects</description>
@@ -53,19 +53,19 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.10</version>
+      <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.2</version>
+      <version>1.7.30</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
-      <version>1.7.2</version>
+      <version>1.7.30</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -236,8 +236,8 @@
   
   <distributionManagement>
     <repository>
-      <id>bintray</id>
-      <url>https://api.bintray.com/maven/hohonuuli/maven/mbarix4j</url>
+      <id>github</id>
+      <url>https://maven.pkg.github.com/mbari-org/maven</url>
     </repository>
   </distributionManagement>
   
