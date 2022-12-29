@@ -9,7 +9,7 @@ package mbarix4j.text;
  *
  * @author brian
  */
-public class DefaultToStringConverter implements ObjectToStringConverter {
+public class DefaultToStringConverter implements ObjectToStringConverter<Object> {
 
     public String convert(Object object) {
         return object.toString();

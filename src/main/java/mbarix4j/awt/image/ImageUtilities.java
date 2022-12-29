@@ -154,7 +154,7 @@ public class ImageUtilities {
         int height = image.getHeight();
         WritableRaster raster = colorModel.createCompatibleWritableRaster(width, height);
         boolean isAlphaPremultiplied = colorModel.isAlphaPremultiplied();
-        Hashtable props = new Hashtable();
+        Hashtable<String, Object> props = new Hashtable<>();
         String[] keys = image.getPropertyNames();
 
         if (keys != null) {

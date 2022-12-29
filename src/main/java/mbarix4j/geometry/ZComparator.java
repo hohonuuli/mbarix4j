@@ -12,9 +12,9 @@ import java.util.Comparator;
  * 
  * @author brian
  */
-public class ZComparator implements Comparator<Point3D> {
+public class ZComparator implements Comparator<Point3D<? extends Number>> {
 
-    public int compare(Point3D o1, Point3D o2) {
+    public int compare(Point3D<? extends Number> o1, Point3D<? extends Number> o2) {
         Double n1 = o1.getZ().doubleValue();
         Double n2 = o2.getZ().doubleValue();
         return n1.compareTo(n2);

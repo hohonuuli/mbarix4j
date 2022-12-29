@@ -34,12 +34,12 @@ public class PointUtilities {
      * @param points
      * @return A point representing the centroid
      */
-    public static Point2D<Double> centroid(Collection<? extends Point2D> points) {
+    public static Point2D<Double> centroid(Collection<? extends Point2D<? extends Number>> points) {
 
         double x = 0;
         double y = 0;
 
-        for (Point2D p : points) {
+        for (Point2D<? extends Number> p : points) {
             x += p.getX().doubleValue();
             y += p.getY().doubleValue();
         }
@@ -121,7 +121,7 @@ public class PointUtilities {
      * @param center
      * @return
      */
-    public static List<Point2D<Double>> scale(List<? extends Point2D<? extends Number>> points, Double scale, Point2D center) {
+    public static List<Point2D<Double>> scale(List<? extends Point2D<? extends Number>> points, Double scale, Point2D<? extends Number> center) {
 
         double centerX = center.getX().doubleValue();
         double centerY = center.getY().doubleValue();
@@ -158,7 +158,7 @@ public class PointUtilities {
      */
     public static List<Point2D<Double>> translate(List<? extends Point2D<? extends Number>> points, double x, double y) {
         List<Point2D<Double>> translatedPoints = new ArrayList<Point2D<Double>>(points.size());
-        for (Point2D p : points) {
+        for (Point2D<? extends Number> p : points) {
             translatedPoints.add(new Point2D<Double>(p.getX().doubleValue() + x,
                                              p.getY().doubleValue() + y));
         }

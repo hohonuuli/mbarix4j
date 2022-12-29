@@ -509,16 +509,16 @@ public class Matlib {
      * y = x(order) are the same.
      */
     public static synchronized int[] uniqueSort(double[] x) {
-        TreeMap tm = new TreeMap();
+        TreeMap<Double, Integer> tm = new TreeMap<>();
         for (int i = 0; i < x.length; i++) {
-            Double key = new Double(x[i]);
+            Double key = Double.valueOf(x[i]);
             boolean exists = tm.containsKey(key);
             if (exists) {
 
                 // Do nothing. Ignore duplicate keys
             }
             else {
-                tm.put(key, new Integer(i));
+                tm.put(key, Integer.valueOf(i));
             }
         }
         Object[] values = tm.values().toArray();
@@ -547,16 +547,16 @@ public class Matlib {
      * y = x(order) are the same.
      */
     public static synchronized int[] uniqueSort(long[] x) {
-        TreeMap tm = new TreeMap();
+        TreeMap<Long, Integer> tm = new TreeMap<>();
         for (int i = 0; i < x.length; i++) {
-            Long key = new Long(x[i]);
+            Long key = Long.valueOf(x[i]);
             boolean exists = tm.containsKey(key);
             if (exists) {
 
                 // Do nothing. Ignore duplicate keys
             }
             else {
-                tm.put(key, new Integer(i));
+                tm.put(key, Integer.valueOf(i));
             }
         }
         Object[] values = tm.values().toArray();

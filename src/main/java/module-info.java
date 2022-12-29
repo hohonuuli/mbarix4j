@@ -3,10 +3,10 @@
  * @since 2019-08-23T14:45:00
  */
 module mbarix4j {
-    requires java.desktop;
+    requires transitive java.desktop;
     requires java.prefs;
     requires java.scripting;
-    requires java.sql;
+    requires transitive java.sql;
     requires org.slf4j;
 
     exports mbarix4j.awt;
