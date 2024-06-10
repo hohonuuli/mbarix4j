@@ -9,9 +9,9 @@
   <url>https://github.com/hohonuuli/mbarix4j</url>
   <description>MBARI developed java code that is shared across different projects</description>
   <scm>
-    <connection>scm:git@github.com:hohonuuli/mbarix4j.git</connection>
-    <developerConnection>scm:git:git@github.com:hohonuuli/mbarix4j.git</developerConnection>
-    <url>https://github.com/hohonuuli/mbarix4j</url>
+    <connection>scm:git@github.com:mbari-org/mbarix4j.git</connection>
+    <developerConnection>scm:git:git@github.com:mbari-org/mbarix4j.git</developerConnection>
+    <url>https://github.com/mbari-org/mbarix4j</url>
     <tag>HEAD</tag>
   </scm>
   <properties>
@@ -31,7 +31,7 @@
   </developers>
   <issueManagement>
     <system>jira</system>
-    <url>https://github.com/hohonuuli/mbarix4j/issues</url>
+    <url>https://github.com/mbari-org/mbarix4j/issues</url>
   </issueManagement>
 
   <!-- Repositories -->
